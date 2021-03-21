@@ -7,13 +7,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    edit: []
   },
   mutations: {
     insertProducts (state, payload) {
-      console.log(payload)
       state.products = payload
-      console.log(state.products)
+    },
+    insertEdit (state, payload) {
+      state.edit = payload.product
+      console.log(state.edit.name)
     }
   },
   actions: {
@@ -28,7 +31,7 @@ export default new Vuex.Store({
       })
         .then(({ data }) => {
           localStorage.access_token = data.access_token
-          router.push('/')
+          this.dispatch('goHome')
         })
         .catch((err) => {
           console.log(err)
@@ -36,6 +39,7 @@ export default new Vuex.Store({
     },
     signout () {
       localStorage.removeItem('access_token')
+      localStorage.removeItem('id')
       router.push('/signin')
     },
     goHome () {
@@ -57,7 +61,7 @@ export default new Vuex.Store({
         }
       })
         .then(({ data }) => {
-          router.push('/')
+          this.dispatch('fetchProducts')
         })
         .catch((err) => {
           console.log(err)
@@ -85,6 +89,44 @@ export default new Vuex.Store({
         url: `/products/${payload}`,
         headers: {
           access_token: localStorage.access_token
+        }
+      })
+        .then(({ data }) => {
+          this.dispatch('fetchProducts')
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    editProduct (context, payload) {
+      axios({
+        method: 'get',
+        url: `/products/${payload}`,
+        headers: {
+          access_token: localStorage.access_token
+        }
+      })
+        .then(({ data }) => {
+          context.commit('insertEdit', data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    updateProduct (context, payload) {
+      console.log(payload)
+      axios({
+        method: 'put',
+        url: `/products/${payload.id}`,
+        headers: {
+          access_token: localStorage.access_token
+        },
+        data: {
+          name: payload.editName,
+          category: payload.editCategory,
+          stock: payload.editStock,
+          price: payload.editPrice,
+          image: payload.editImage
         }
       })
         .then(({ data }) => {

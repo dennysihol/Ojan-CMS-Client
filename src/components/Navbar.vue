@@ -16,7 +16,7 @@
             <template #button-content>
               <em>User</em>
             </template>
-            <b-dropdown-item href="#" v-b-modal.modal-1>Add Product</b-dropdown-item>
+            <b-dropdown-item href="#" v-b-modal.modal-add>Add Product</b-dropdown-item>
             <b-dropdown-item @click="signout">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>

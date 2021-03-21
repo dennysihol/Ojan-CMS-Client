@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-modal id="modal-1" title="Add Product">
+    <b-modal id="modal-add" title="Add Product">
       <form @submit="addProduct">
         <label for="name">Name</label><br>
         <input type="text" v-model="nameProduct"><br>
