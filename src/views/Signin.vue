@@ -42,7 +42,6 @@ export default {
 
 .for-signin {
     background-color: #bdb2ff;
-    opacity: 97%;
     width: 30%;
     margin-top: 5%;
     border-radius: 10px;
