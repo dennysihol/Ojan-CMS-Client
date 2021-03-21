@@ -83,7 +83,6 @@ body {
 .for-table {
   margin-top: 20px;
   background-color: #e8e8e4;
-  opacity: 95%;
 }
 
 </style>
