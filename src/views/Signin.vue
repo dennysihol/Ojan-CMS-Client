@@ -10,7 +10,7 @@
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" v-model="password" required>
             <br><br>
             <button class="btn btn-lg btn-primary btn-block" type="submit" @click.prevent="signin">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
         </form>
     </div>
 </template>

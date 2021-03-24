@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-modal id="modal-edit" title="Edit Product">
+    <b-modal id="modal-edit" title="Edit Product" hide-footer>
       <form @submit="updateProduct(edit.id)">
         <label for="name">Name</label><br>
         <input type="text" v-model="edit.name"><br>

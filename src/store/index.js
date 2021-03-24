@@ -114,7 +114,6 @@ export default new Vuex.Store({
         })
     },
     updateProduct (context, payload) {
-      console.log(payload)
       axios({
         method: 'put',
         url: `/products/${payload.id}`,

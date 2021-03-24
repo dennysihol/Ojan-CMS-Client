@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-modal id="modal-add" title="Add Product">
-      <form @submit="addProduct">
+    <b-modal id="modal-add" title="Add Product" hide-footer>
+      <form @submit.prevent="addProduct">
         <label for="name">Name</label><br>
         <input type="text" v-model="nameProduct"><br>
         <label for="category">Category</label><br>
@@ -37,6 +37,7 @@ export default {
   },
   methods: {
     addProduct () {
+      console.log('add jalan')
       const product = {
         name: this.nameProduct,
         category: this.category,
