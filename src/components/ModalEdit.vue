@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-modal id="modal-edit" title="Edit Product" hide-footer>
-      <form @submit="updateProduct(edit.id)">
+      <form @submit.prevent="updateProduct(edit.id)">
         <label for="name">Name</label><br>
         <input type="text" v-model="edit.name"><br>
         <label for="category">Category</label><br>
@@ -39,6 +39,7 @@ export default {
         editImage: this.edit.image
       }
       this.$store.dispatch('updateProduct', editedProduct)
+      this.$bvModal.hide('modal-edit')
     }
   },
   computed: {

@@ -46,6 +46,7 @@ export default {
         image: this.image
       }
       this.$store.dispatch('addProduct', product)
+      this.$bvModal.hide('modal-add')
     }
   }
 
